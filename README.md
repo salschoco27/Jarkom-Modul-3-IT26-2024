@@ -155,9 +155,39 @@ iface eth0 inet dhcp
 ### .bashrc
 1. DHCP Relay (Paradis)
 ```bash
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.241.0.0/16
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.246.0.0/16
 apt-get update
 apt install isc-dhcp-relay -y
 ```
 
+2. DHCP Server (Tybur)
+```bash
+echo 'nameserver 192.246.4.2' > /etc/resolv.conf
+apt-get update
+apt-get install isc-dhcp-server -y
+```
 
+3. DNS Server (Fritz)
+```bash
+echo 'nameserver 192.168.122.1' > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+
+echo 'options {
+        directory "/var/cache/bind";
+
+        forwarders {
+                192.168.122.1;
+        };
+
+        // dnssec-validation auto;
+        allow-query{any;};
+        auth-nxdomain no;
+        listen-on-v6 { any; };
+}; ' >/etc/bind/named.conf.options
+
+service bind9 restart
+```
+
+## Soal 0
+Pulau Paradis telah menjadi tempat yang damai selama 1000 tahun, namun kedamaian tersebut tidak bertahan selamanya. Perang antara kaum Marley dan Eldia telah mencapai puncak. Kaum Marley yang dipimpin oleh Zeke, me-register domain name **marley.yyy.com** untuk worker Laravel mengarah pada **Annie**. Namun ternyata tidak hanya kaum Marley saja yang berinisiasi, kaum Eldia ternyata sudah mendaftarkan domain name **eldia.yyy.com** untuk worker PHP (0) mengarah pada **Armin**.
