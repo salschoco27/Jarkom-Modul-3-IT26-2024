@@ -56,6 +56,101 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	gateway 192.246.1.1
 ```
+3. Berdholdt
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.1.3
+    netmask 255.255.255.0
+    gateway 192.246.1.1
+```
+
+4. Reiner
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.1.4
+    netmask 255.255.255.0
+    gateway 192.246.1.1
+```
+
+5. Armin
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.2.2
+    netmask 255.255.255.0
+    gateway 192.246.2.1
+```
+
+6. Eren
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.2.3
+    netmask 255.255.255.0
+    gateway 192.246.2.1
+```
+
+7. Mikasa
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.2.4
+    netmask 255.255.255.0
+    gateway 192.246.2.1
+```
+
+8. Beast
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.3.2
+    netmask 255.255.255.0
+    gateway 192.246.3.1
+```
+
+9. Colossal
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.3.3
+    netmask 255.255.255.0
+    gateway 192.246.3.1
+```
+
+10. Warhammer
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.3.4
+    netmask 255.255.255.0
+    gateway 192.246.3.1
+```
+
+11. Fritz
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.4.2
+    netmask 255.255.255.0
+    gateway 192.246.4.1
+```
+
+12. Tybur
+```
+auto eth0
+iface eth0 inet static
+    address 192.246.4.3
+    netmask 255.255.255.0
+    gateway 192.246.4.1
+```
+
+13. Zeke & Erwin
+```
+auto eth0
+iface eth0 inet dhcp
+```
 
 ### .bashrc
 1. DHCP Relay (Paradis)
