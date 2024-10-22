@@ -353,3 +353,179 @@ Seiring berjalannya waktu kondisi semakin memanas, untuk bersiap perang. Kaum **
 **hint: (proxy_pass)**
 6. Selanjutnya Colossal ini hanya boleh diakses oleh client dengan IP [Prefix IP].1.77, [Prefix IP].1.88, [Prefix IP].2.144, dan [Prefix IP].2.156. **(12)** 
 **hint: (fixed in dulu clientnya)**
+
+### Soal 6
+```bash
+# Soal 6: Jalankan pada setiap PHP worker (Armin, Eren, Mikasa)
+mkdir -p /var/www/eldia.it26.com
+
+wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1TvebIeMQjRjFURKVtA32lO9aL7U2msd6' -O /root/bangsaEldia.zip
+unzip /root/bangsaEldia.zip -d /var/www/eldia.it26.com
+rm -rf /root/bangsaEldia.zip
+
+echo '
+server {
+
+        listen 80;
+
+        root /var/www/eldia.it26.com;
+
+        index index.php index.html index.htm;
+        server_name _;
+
+        location / {
+                        try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        # pass PHP scripts to FastCGI server
+        location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+        }
+
+location ~ /\.ht {
+                        deny all;
+        }
+
+        error_log /var/log/nginx/jarkom_error.log;
+        access_log /var/log/nginx/jarkom_access.log;
+ }' > /etc/nginx/sites-available/eldia.it26.com
+
+ln -s /etc/nginx/sites-available/eldia.it26.com /etc/nginx/sites-enabled
+rm -rf /etc/nginx/sites-enabled/default
+
+service php7.3-fpm start
+service php7.3-fpm restart
+service nginx restart
+nginx -t
+```
+
+### Soal 7
+```bash
+#Jalankan pada Fritz
+echo ';
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     eldia.it26.com. root.eldia.it26.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      eldia.it26.com.
+@       IN      A       192.246.3.3     ; IP Colossal' > /etc/bind/eldia/eldia.it26.com
+
+service bind9 restart
+```
+
+```bash
+# Soal 7: Jalankan pada Colossal
+echo '
+ upstream myweb  {
+        server 192.246.2.2; #IP Armin
+        server 192.246.2.3; #IP Eren
+        server 192.246.2.4; #IP Mikasa
+ }
+
+ server {
+        listen 80;
+        server_name eldia.it26.com;
+
+        location / {
+        proxy_pass http://myweb;
+        }
+ }' > /etc/nginx/sites-available/lb-php
+
+ln -s /etc/nginx/sites-available/lb-php /etc/nginx/sites-enabled
+rm -rf /etc/nginx/sites-enabled/default
+
+service nginx restart
+nginx -t
+```
+
+```bash
+#Pada Erwin lakukan sebagai langkah akhir untuk pengetesan
+ab -n 6000 -c 200 http://eldia.it26.com/
+```
+
+### Soal 8
+```bash
+# Soal 8: Jalankan pada Colossal dan coba menggunakan tiap algoritma load balancing
+echo '
+ upstream myweb  {
+#    hash $request_uri consistent;
+#    least_conn;
+#    ip_hash;
+        server 192.246.2.2; #IP Armin
+        server 192.246.2.3; #IP Eren
+        server 192.246.2.4; #IP Mikasa
+ }
+
+ server {
+        listen 80;
+        server_name eldia.it26.com;
+
+        location / {
+        proxy_pass http://myweb;
+        }
+ }' > /etc/nginx/sites-available/lb-php
+
+ln -s /etc/nginx/sites-available/lb-php /etc/nginx/sites-enabled
+rm -rf /etc/nginx/sites-enabled/default
+
+service nginx restart
+nginx -t
+```
+
+```bash
+#Pada Erwin lakukan setiap kali algoritma load balancer diubah
+ab -n 1000 -c 75 http://eldia.it26.com/
+```
+
+### Soal 9
+```bash
+# Ubah jumlah worker
+service nginx stop
+```
+
+```bash
+#Pada Erwin lakukan setiap kali jumlah worker diubah
+ab -n 1000 -c 10 http://eldia.it26.com/
+```
+
+### Soal 10
+```bash
+#Pada Colossal
+
+mkdir /etc/nginx/supersecret
+htpasswd -b -c /etc/nginx/supersecret/htpasswd arminannie jrkmit26
+
+echo '
+ upstream myweb  {
+        least_conn;
+        server 192.246.2.2; #IP Armin
+        server 192.246.2.3; #IP Eren
+        server 192.246.2.4; #IP Mikasa
+ }
+
+ server {
+        listen 80;
+        server_name eldia.it26.com;
+
+        location / {
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/supersecret/htpasswd;
+        proxy_pass http://myweb;
+        }
+ }' > /etc/nginx/sites-available/lb-php
+
+ln -s /etc/nginx/sites-available/lb-php /etc/nginx/sites-enabled
+rm -rf /etc/nginx/sites-enabled/default
+
+service nginx restart
+nginx -t
+```
+
+Lalu akses di client dengan `lynx`

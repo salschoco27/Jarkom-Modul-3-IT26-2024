@@ -1,4 +1,4 @@
-# Soal 8: Jalankan pada Colossal
+# Soal 8: Jalankan pada Colossal dan coba menggunakan tiap algoritma load balancing
 echo '
  upstream myweb  {
 #    hash $request_uri consistent;
