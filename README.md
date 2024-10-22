@@ -189,6 +189,31 @@ echo 'options {
 service bind9 restart
 ```
 
+4. PHP Worker (Armin, Eren, Mikasa)
+```bash
+echo 'nameserver 192.241.4.2' > /etc/resolv.conf
+apt-get update
+apt-get install lynx -y
+apt-get install wget -y
+apt-get install unzip -y
+apt-get install nginx -y
+apt install software-properties-common -y
+apt install php7.3 -y
+apt install php7.3-fpm -y
+```
+
+5. PHP Load Balancer (Colossal)
+```bash
+echo 'nameserver 192.246.4.2' > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+apt-get install apache2-utils -y
+apt-get install nginx -y
+apt-get install lynx -y
+
+service nginx start
+```
+
 ## Soal 0
 Pulau Paradis telah menjadi tempat yang damai selama 1000 tahun, namun kedamaian tersebut tidak bertahan selamanya. Perang antara kaum Marley dan Eldia telah mencapai puncak. Kaum Marley yang dipimpin oleh Zeke, me-register domain name **marley.yyy.com** untuk worker Laravel mengarah pada **Annie**. Namun ternyata tidak hanya kaum Marley saja yang berinisiasi, kaum Eldia ternyata sudah mendaftarkan domain name **eldia.yyy.com** untuk worker PHP **(0)** mengarah pada **Armin**.
 
@@ -249,3 +274,74 @@ Jauh sebelum perang dimulai, ternyata para keluarga bangsawan, Tybur dan Fritz, 
 4. **Client mendapatkan DNS** dari keluarga **Fritz** dan dapat terhubung dengan internet melalui DNS tersebut **(4)**
 5. Dikarenakan keluarga **Tybur** tidak menyukai kaum eldia, maka mereka hanya meminjamkan ip address ke kaum **eldia** selama **6 menit**. Namun untuk kaum **marley**, keluarga Tybur meminjamkan ip address selama **30 menit**. **Waktu maksimal** dialokasikan untuk peminjaman alamat IP selama **87 menit**. **(5)**
 
+### DHCP Relay (Paradis)
+```bash
+#Pada Paradis
+
+echo 'SERVERS="192.246.4.3"
+INTERFACES="eth1 eth2 eth3 eth4"' > /etc/default/isc-dhcp-relay
+
+echo 'net.ipv4.ip_forward=1' > /etc/sysctl.conf
+
+service isc-dhcp-relay restart
+```
+
+### DHCP Server (Tybur)
+```bash
+# Pada Tybur konfigurasi DHCP Server (Soal 1)
+
+echo 'INTERFACESv4="eth0"' > /etc/default/isc-dhcp-server
+
+echo 'subnet 192.246.1.0 netmask 255.255.255.0 {
+#Soal 2 Range IP Marley
+        range 192.246.1.05 192.246.1.25;
+        range 192.246.1.50 192.246.1.100;
+        option routers 192.246.1.1;
+#Soal 4 DNS Server Fritz
+        option broadcast-address 192.246.1.255;
+        option domain-name-servers 192.246.4.2;
+#Soal 5 Durasi DHCP Marley
+        default-lease-time 1800;
+        max-lease-time 5220;
+}
+
+subnet 192.246.2.0 netmask 255.255.255.0 {
+#Soal 3 Range IP Eldia
+        range 192.246.2.09 192.246.2.27;
+        range 192.246.2.81 192.246.2.243;
+        option routers 192.246.2.1;
+#Soal 4 DNS Server Fritz
+        option broadcast-address 192.246.2.255;
+        option domain-name-servers 192.246.4.2;
+#Soal 5 Durasi DHCP Eldia
+        default-lease-time 360;
+        max-lease-time 5220;
+}
+
+subnet 192.246.3.0 netmask 255.255.255.0 {
+        option routers 192.246.3.1;
+}
+
+subnet 192.246.4.0 netmask 255.255.255.0 {
+        option routers 192.246.4.1;
+} ' > /etc/dhcp/dhcpd.conf
+
+service isc-dhcp-server restart
+```
+
+## Soal 6-12
+Seiring berjalannya waktu kondisi semakin memanas, untuk bersiap perang. Kaum **Eldia** melakukan deployment sebagai berikut
+1. **Armin** berinisiasi untuk memerintahkan setiap worker PHP untuk melakukan konfigurasi virtual host untuk website berikut https://intip.in/BangsaEldia dengan menggunakan php 7.3 **(6)**
+2. Dikarenakan Armin sudah mendapatkan kekuatan titan colossal, maka bantulah kaum **eldia** menggunakan **colossal** agar dapat bekerja sama dengan baik. Kemudian lakukan testing dengan 6000 request dan 200 request/second. **(7)**
+3. Karena Erwin meminta “laporan kerja Armin”, maka dari itu buatlah analisis hasil testing dengan 1000 request dan 75 request/second untuk masing-masing algoritma Load Balancer dengan ketentuan sebagai berikut:
+- Nama Algoritma Load Balancer
+- Report hasil testing pada Apache Benchmark
+- Grafik request per second untuk masing masing algoritma. 
+- Analisis **(8)**
+
+3. Dengan menggunakan algoritma Least-Connection, lakukan testing dengan menggunakan 3 worker, 2 worker, dan 1 worker sebanyak 1000 request dengan 10 request/second, kemudian tambahkan grafiknya pada “laporan kerja Armin”. **(9)**
+4. Selanjutnya coba tambahkan keamanan dengan konfigurasi autentikasi di **Colossal** dengan dengan kombinasi username: “arminannie” dan password: “jrkmyyy”, dengan yyy merupakan kode kelompok. Terakhir simpan file “htpasswd” nya di /etc/nginx/supersecret/ **(10)**
+5. Lalu buat untuk setiap request yang mengandung /titan akan di proxy passing menuju halaman https://attackontitan.fandom.com/wiki/Attack_on_Titan_Wiki **(11)** 
+**hint: (proxy_pass)**
+6. Selanjutnya Colossal ini hanya boleh diakses oleh client dengan IP [Prefix IP].1.77, [Prefix IP].1.88, [Prefix IP].2.144, dan [Prefix IP].2.156. **(12)** 
+**hint: (fixed in dulu clientnya)**
