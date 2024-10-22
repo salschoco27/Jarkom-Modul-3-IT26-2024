@@ -213,6 +213,14 @@ apt-get install lynx -y
 
 service nginx start
 ```
+Client (Zeke, Erwin)
+```bash
+apt update
+apt install lynx -y
+apt install htop -y
+apt install apache2-utils -y
+apt-get install jq -y
+```
 
 ## Soal 0
 Pulau Paradis telah menjadi tempat yang damai selama 1000 tahun, namun kedamaian tersebut tidak bertahan selamanya. Perang antara kaum Marley dan Eldia telah mencapai puncak. Kaum Marley yang dipimpin oleh Zeke, me-register domain name **marley.yyy.com** untuk worker Laravel mengarah pada **Annie**. Namun ternyata tidak hanya kaum Marley saja yang berinisiasi, kaum Eldia ternyata sudah mendaftarkan domain name **eldia.yyy.com** untuk worker PHP **(0)** mengarah pada **Armin**.

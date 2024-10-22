@@ -38,7 +38,7 @@ $TTL    604800
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-@       IN      NS      eldia.16.com.
+@       IN      NS      eldia.it26.com.
 @       IN      A       192.246.2.2     ; IP Armin' > /etc/bind/eldia/eldia.it26.com
 
 service bind9 restart
