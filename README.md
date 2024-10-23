@@ -55,6 +55,9 @@ iface eth0 inet static
 	address 192.246.1.2
 	netmask 255.255.255.0
 	gateway 192.246.1.1
+up echo 'nameserver 192.246.4.2' > /etc/resolv.conf
+up apt-get update
+up apt-get install nano -y
 ```
 3. Berdholdt
 ```
@@ -63,6 +66,9 @@ iface eth0 inet static
     address 192.246.1.3
     netmask 255.255.255.0
     gateway 192.246.1.1
+up echo 'nameserver 192.246.4.2' > /etc/resolv.conf
+up apt-get update
+up apt-get install nano -y
 ```
 
 4. Reiner
@@ -72,6 +78,9 @@ iface eth0 inet static
     address 192.246.1.4
     netmask 255.255.255.0
     gateway 192.246.1.1
+up echo 'nameserver 192.246.4.2' > /etc/resolv.conf
+up apt-get update
+up apt-get install nano -y
 ```
 
 5. Armin
@@ -225,20 +234,21 @@ service mysql start
 
 7. Laravel Worker (Annie, Berdholdt, Reiner)
 ```bash
-echo 'nameserver 192.246.4.2' > /etc/resolv.conf
 apt-get update
 apt-get install lynx -y
 apt-get install mariadb-client -y
-apt-get install wget -y
-apt-get install unzip -y
 apt-get install -y lsb-release ca-certificates apt-transport-https software-properties-common gnupg2
-apt install php7.3 -y
-apt install php7.3-fpm -y
+apt-get install curl -y
+curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
+sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+apt-get update
+apt-get install php8.0-mbstring php8.0-xml php8.0-cli   php8.0-common php8.0-intl php8.0-opcache php8.0-readline php8.0-mysql php8.0-fpm php8.0-curl unzip wget -y
 apt-get install nginx -y
 apt-get install git -y
 apt-get install htop -y
 
 service nginx start
+service php8.0-fpm start
 ```
 
 8. Client (Zeke, Erwin)
@@ -661,3 +671,21 @@ c. GET /me **(17)**
    Sebanyak tiga percobaan dan lakukan testing sebanyak 150 request dengan 15 request/second kemudian berikan hasil analisisnya pada “laporan kerja Armin”.**(19)**
 6. Nampaknya hanya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa dari worker maka Zeke mengimplementasikan Least-Conn pada **Beast**. Untuk testing kinerja dari worker tersebut dilakukan sebanyak 200 request dengan 25 request/second. **(20)**
 
+### Soal 13
+
+**Jangan Lupa Install nano di Laravel Worker**
+
+```bash
+# Pada Warhammer
+mysql -u root -p
+
+CREATE USER 'kelompokit26'@'%' IDENTIFIED BY 'passwordit26';
+CREATE USER 'kelompokit26'@'localhost' IDENTIFIED BY 'passwordit26';
+CREATE DATABASE dbkelompokit26;
+GRANT ALL PRIVILEGES ON *.* TO 'kelompokit26'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'kelompokit26'@'localhost';
+FLUSH PRIVILEGES;
+exit
+```
+
+Akses di Worker (Annie, Berdholdt, Reiner) dengan `mariadb --host=192.246.3.4 --port=3306 --user=kelompokit26 --password`
