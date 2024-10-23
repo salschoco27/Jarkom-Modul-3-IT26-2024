@@ -647,18 +647,18 @@ echo 'hwaddress ether fa:61:fb:1a:8d:5b' >> /etc/network/interfaces
 
 ## Soal 13-20
 Melihat perlawanan yang sengit dari kaum eldia, kaum marley pun memutar otak dan mengatur para worker di marley.
-1. Karena mengetahui bahwa ada keturunan marley yang mewarisi kekuatan titan, Zeke pun berinisiatif untuk menyimpan data data penting di Warhammer, dan semua data tersebut harus dapat diakses oleh anak buah kesayangannya, Annie, Reiner, dan Berthold.**(13)**
-2. Annie, Reiner, dan Berthold memiliki Marley Channel sesuai dengan quest guide berikut. Jangan lupa melakukan instalasi PHP 8.0 dan Composer **(14)**
-Marley Channel memiliki beberapa endpoint yang harus ditesting sebanyak 120 request dengan 10 request/second. Annie diminta oleh Zeke untuk membuat laporan testing tersebut, namun karena satu dan dua hal, Annie berhasil diculik oleh SurveyCorps dan diinterogasi oleh Armin. Armin kemudian menambahkan hasil response dan hasil testing pada “laporan kerja Armin”.
-3. POST /auth/register **(15)**
-4. POST /auth/login **(16)**
-5. GET /me **(17)**
-6. Setelah Annie berhasil kabur dari SurveyCorps, Annie kembali ke Reiner dan Bertholdt. Untuk memastikan ketiganya bekerja sama secara baik untuk mengatur Marley Channel maka implementasikan Proxy Bind pada Beast untuk mengaitkan IP dari Annie, Reiner, dan Berthold. **(18)**
-Untuk meningkatkan performa dari Worker, coba implementasikan PHP-FPM pada Annie, Reiner, dan Berthold. Untuk testing kinerja naikkan 
-- pm.max_children
-- pm.start_servers
-- pm.min_spare_servers
-- pm.max_spare_servers
-7. Sebanyak tiga percobaan dan lakukan testing sebanyak 150 request dengan 15 request/second kemudian berikan hasil analisisnya pada “laporan kerja Armin”.**(19)**
-8. Nampaknya hanya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa dari worker maka Zeke mengimplementasikan Least-Conn pada Beast. Untuk testing kinerja dari worker tersebut dilakukan sebanyak 200 request dengan 25 request/second. **(20)**
+1. Karena mengetahui bahwa ada keturunan marley yang mewarisi kekuatan titan, Zeke pun berinisiatif untuk menyimpan data data penting di **Warhammer**, dan semua data tersebut harus dapat diakses oleh anak buah kesayangannya, **Annie, Reiner,** dan **Berthold**.**(13)**
+2. **Annie, Reiner,** dan **Berthold** memiliki **Marley Channel** sesuai dengan quest guide berikut. Jangan lupa melakukan instalasi PHP 8.0 dan Composer **(14)**
+3. **Marley Channel** memiliki beberapa endpoint yang harus ditesting sebanyak 120 request dengan 10 request/second. Annie diminta oleh Zeke untuk membuat laporan testing tersebut, namun karena satu dan dua hal, Annie berhasil diculik oleh SurveyCorps dan diinterogasi oleh Armin. Armin kemudian menambahkan hasil response dan hasil testing pada “laporan kerja Armin”.
+   a. POST /auth/register **(15)**
+   b. POST /auth/login **(16)**
+   c. GET /me **(17)**
+4. Setelah Annie berhasil kabur dari SurveyCorps, Annie kembali ke Reiner dan Bertholdt. Untuk memastikan ketiganya bekerja sama secara baik untuk mengatur **Marley Channel** maka implementasikan Proxy Bind pada **Beast** untuk mengaitkan IP dari **Annie, Reiner,** dan **Berthold**. **(18)**
+5. Untuk meningkatkan performa dari Worker, coba implementasikan PHP-FPM pada Annie, Reiner, dan Berthold. Untuk testing kinerja naikkan 
+   - pm.max_children
+   - pm.start_servers
+   - pm.min_spare_servers
+   - pm.max_spare_servers
+   Sebanyak tiga percobaan dan lakukan testing sebanyak 150 request dengan 15 request/second kemudian berikan hasil analisisnya pada “laporan kerja Armin”.**(19)**
+6. Nampaknya hanya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa dari worker maka Zeke mengimplementasikan Least-Conn pada **Beast**. Untuk testing kinerja dari worker tersebut dilakukan sebanyak 200 request dengan 25 request/second. **(20)**
 
