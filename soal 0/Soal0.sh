@@ -8,7 +8,7 @@ echo 'zone "marley.it26.com" {
 zone "eldia.it26.com" {
         type master;
         file "/etc/bind/eldia/eldia.it26.com";
-}; ' >> /etc/bind/named.conf.local
+}; ' > /etc/bind/named.conf.local
 
 mkdir /etc/bind/marley
 mkdir /etc/bind/eldia
