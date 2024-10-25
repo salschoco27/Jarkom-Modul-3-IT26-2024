@@ -55,9 +55,6 @@ iface eth0 inet static
 	address 192.246.1.2
 	netmask 255.255.255.0
 	gateway 192.246.1.1
-up echo 'nameserver 192.246.4.2' > /etc/resolv.conf
-up apt-get update
-up apt-get install nano -y
 ```
 3. Berdholdt
 ```
@@ -66,9 +63,6 @@ iface eth0 inet static
     address 192.246.1.3
     netmask 255.255.255.0
     gateway 192.246.1.1
-up echo 'nameserver 192.246.4.2' > /etc/resolv.conf
-up apt-get update
-up apt-get install nano -y
 ```
 
 4. Reiner
@@ -78,9 +72,6 @@ iface eth0 inet static
     address 192.246.1.4
     netmask 255.255.255.0
     gateway 192.246.1.1
-up echo 'nameserver 192.246.4.2' > /etc/resolv.conf
-up apt-get update
-up apt-get install nano -y
 ```
 
 5. Armin
@@ -234,21 +225,10 @@ service mysql start
 
 7. Laravel Worker (Annie, Berdholdt, Reiner)
 ```bash
+echo 'nameserver 192.246.4.2' > /etc/resolv.conf
 apt-get update
 apt-get install lynx -y
 apt-get install mariadb-client -y
-apt-get install -y lsb-release ca-certificates apt-transport-https software-properties-common gnupg2
-apt-get install curl -y
-curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
-sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
-apt-get update
-apt-get install php8.0-mbstring php8.0-xml php8.0-cli   php8.0-common php8.0-intl php8.0-opcache php8.0-readline php8.0-mysql php8.0-fpm php8.0-curl unzip wget -y
-apt-get install nginx -y
-apt-get install git -y
-apt-get install htop -y
-
-service nginx start
-service php8.0-fpm start
 ```
 
 8. Client (Zeke, Erwin)
@@ -654,26 +634,9 @@ service isc-dhcp-server restart
 echo 'hwaddress ether fa:61:fb:1a:8d:5b' >> /etc/network/interfaces
 ```
 
-## Soal 13-20
+## Soal 13
 Melihat perlawanan yang sengit dari kaum eldia, kaum marley pun memutar otak dan mengatur para worker di marley.
 1. Karena mengetahui bahwa ada keturunan marley yang mewarisi kekuatan titan, Zeke pun berinisiatif untuk menyimpan data data penting di **Warhammer**, dan semua data tersebut harus dapat diakses oleh anak buah kesayangannya, **Annie, Reiner,** dan **Berthold**.**(13)**
-2. **Annie, Reiner,** dan **Berthold** memiliki **Marley Channel** sesuai dengan quest guide berikut. Jangan lupa melakukan instalasi PHP 8.0 dan Composer **(14)**
-3. **Marley Channel** memiliki beberapa endpoint yang harus ditesting sebanyak 120 request dengan 10 request/second. Annie diminta oleh Zeke untuk membuat laporan testing tersebut, namun karena satu dan dua hal, Annie berhasil diculik oleh SurveyCorps dan diinterogasi oleh Armin. Armin kemudian menambahkan hasil response dan hasil testing pada “laporan kerja Armin”.<br>
-a. POST /auth/register **(15)** <br>
-b. POST /auth/login **(16)** <br>
-c. GET /me **(17)**
-4. Setelah Annie berhasil kabur dari SurveyCorps, Annie kembali ke Reiner dan Bertholdt. Untuk memastikan ketiganya bekerja sama secara baik untuk mengatur **Marley Channel** maka implementasikan Proxy Bind pada **Beast** untuk mengaitkan IP dari **Annie, Reiner,** dan **Berthold**. **(18)**
-5. Untuk meningkatkan performa dari Worker, coba implementasikan PHP-FPM pada Annie, Reiner, dan Berthold. Untuk testing kinerja naikkan 
-   - pm.max_children
-   - pm.start_servers
-   - pm.min_spare_servers
-   - pm.max_spare_servers
-   Sebanyak tiga percobaan dan lakukan testing sebanyak 150 request dengan 15 request/second kemudian berikan hasil analisisnya pada “laporan kerja Armin”.**(19)**
-6. Nampaknya hanya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa dari worker maka Zeke mengimplementasikan Least-Conn pada **Beast**. Untuk testing kinerja dari worker tersebut dilakukan sebanyak 200 request dengan 25 request/second. **(20)**
-
-### Soal 13
-
-**Jangan Lupa Install nano di Laravel Worker**
 
 ```bash
 # Pada Warhammer
@@ -688,4 +651,4 @@ FLUSH PRIVILEGES;
 exit
 ```
 
-Akses di Worker (Annie, Berdholdt, Reiner) dengan `mariadb --host=192.246.3.4 --port=3306 --user=kelompokit26 --password`
+Lalu akses di Worker (Annie, Berdholdt, Reiner) dengan `mariadb --host=192.246.3.4 --port=3306 --user=kelompokit26 --password`
