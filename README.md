@@ -688,3 +688,7 @@ exit
 ```
 
 Lalu akses di Worker (Annie, Berdholdt, Reiner) dengan `mariadb --host=192.246.3.4 --port=3306 --user=kelompokit26 --password`
+
+
+![image](https://github.com/user-attachments/assets/b4703001-ad2d-43c5-b4c9-d4f8de489909)
+
