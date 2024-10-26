@@ -546,7 +546,17 @@ service nginx restart
 nginx -t
 ```
 
-Lalu akses di client dengan `lynx`
+Lalu akses di client dengan `lynx http://eldia.it26.com`
+
+![Cuplikan layar 2024-10-27 055557](https://github.com/user-attachments/assets/9dd22611-11ef-4147-b1f5-b66733f2ffc3)
+![image](https://github.com/user-attachments/assets/2e3b589e-60a0-458d-9bb8-a3a67559434b)
+![Cuplikan layar 2024-10-27 055728](https://github.com/user-attachments/assets/ca4571a6-8e85-4235-a0b9-8d65429798bf)
+![Cuplikan layar 2024-10-27 055736](https://github.com/user-attachments/assets/ebef7b4d-17d7-45d6-8b6c-baed6d41e167)
+![Cuplikan layar 2024-10-27 055633](https://github.com/user-attachments/assets/224bd2f8-b71d-42c6-ba95-496437c859dd)
+
+
+
+
 
 ### Soal 11
 ```bash
