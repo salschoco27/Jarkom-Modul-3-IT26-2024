@@ -418,6 +418,9 @@ service nginx restart
 nginx -t
 ```
 
+![Cuplikan layar 2024-10-26 194150](https://github.com/user-attachments/assets/1cd712f9-7b60-4f99-aab6-eca805102050)
+
+
 ### Soal 7
 ```bash
 #Jalankan pada Fritz
