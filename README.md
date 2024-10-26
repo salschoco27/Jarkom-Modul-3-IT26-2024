@@ -534,13 +534,14 @@ ab -n 1000 -c 10 http://eldia.it26.com/
 ```
 
 **3 worker**
-![image](https://github.com/user-attachments/assets/fd20a283-4699-4fae-961f-a853384d40db)
+![WhatsApp Image 2024-10-22 at 17 01 38_9fcba179](https://github.com/user-attachments/assets/18be451b-b1ec-43e2-afa3-f7ae3381fa83)
 
 **2 worker**
-![image](https://github.com/user-attachments/assets/c7e6e080-7b17-4402-8b83-dd0a479260b6)
+![WhatsApp Image 2024-10-22 at 17 02 06_3f3b3492](https://github.com/user-attachments/assets/f5d33e5e-12b7-4016-b674-525a5cdacd5f)
 
 **1 worker**
-![image](https://github.com/user-attachments/assets/00161c98-1baa-449f-9855-9391b1b47fc4)
+![WhatsApp Image 2024-10-22 at 17 04 48_94eeda25](https://github.com/user-attachments/assets/390689a7-4cf3-4c0b-9bae-3cf47f21ed40)
+
 
 
 
