@@ -508,6 +508,20 @@ nginx -t
 ab -n 1000 -c 75 http://eldia.it26.com/
 ```
 
+**Tes di client**
+Round-robin
+![image](https://github.com/user-attachments/assets/eabca600-09ba-481a-b90c-a7dbdf0c77fe)
+
+Hash
+![image](https://github.com/user-attachments/assets/807a0ed5-3fa0-4d98-9474-4801509fa524)
+
+Least Connection
+![image](https://github.com/user-attachments/assets/5dec3097-58c4-4c46-93a0-3f61c2c40786)
+
+IP Hash
+![image](https://github.com/user-attachments/assets/d63da0f1-6fab-4848-aeb0-485ed0a5b85f)
+
+
 ### Soal 9
 ```bash
 # Ubah jumlah worker
