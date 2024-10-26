@@ -582,6 +582,9 @@ service nginx restart
 nginx -t
 ```
 
+![Cuplikan layar 2024-10-26 210512](https://github.com/user-attachments/assets/99020a19-bd54-4e3d-8dae-6e7e7528843f)
+
+
 ### Soal 12
 ```bash
 # Pada Colossal
