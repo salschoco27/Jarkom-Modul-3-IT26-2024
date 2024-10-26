@@ -508,7 +508,7 @@ nginx -t
 ab -n 1000 -c 75 http://eldia.it26.com/
 ```
 
-**Tes di client**
+**Tes di client**<br>
 Round-robin
 ![image](https://github.com/user-attachments/assets/eabca600-09ba-481a-b90c-a7dbdf0c77fe)
 
@@ -533,13 +533,13 @@ service nginx stop
 ab -n 1000 -c 10 http://eldia.it26.com/
 ```
 
-3 worker
+**3 worker**
 ![image](https://github.com/user-attachments/assets/fd20a283-4699-4fae-961f-a853384d40db)
 
-2 worker
+**2 worker**
 ![image](https://github.com/user-attachments/assets/c7e6e080-7b17-4402-8b83-dd0a479260b6)
 
-1 worker
+**1 worker**
 ![image](https://github.com/user-attachments/assets/00161c98-1baa-449f-9855-9391b1b47fc4)
 
 
