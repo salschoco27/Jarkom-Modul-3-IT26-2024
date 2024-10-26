@@ -677,6 +677,11 @@ service isc-dhcp-server restart
 echo 'hwaddress ether fa:61:fb:1a:8d:5b' >> /etc/network/interfaces
 ```
 
+![Cuplikan layar 2024-10-27 061839](https://github.com/user-attachments/assets/91750d14-4931-4865-8af9-ab19c9b889ed)
+![Cuplikan layar 2024-10-27 061833](https://github.com/user-attachments/assets/fdacbd13-ce85-4e3f-b525-74b7f93ecc49)
+
+
+
 ## Soal 13
 Melihat perlawanan yang sengit dari kaum eldia, kaum marley pun memutar otak dan mengatur para worker di marley.
 1. Karena mengetahui bahwa ada keturunan marley yang mewarisi kekuatan titan, Zeke pun berinisiatif untuk menyimpan data data penting di **Warhammer**, dan semua data tersebut harus dapat diakses oleh anak buah kesayangannya, **Annie, Reiner,** dan **Berthold**.**(13)**
