@@ -471,6 +471,9 @@ nginx -t
 ab -n 6000 -c 200 http://eldia.it26.com/
 ```
 
+![image](https://github.com/user-attachments/assets/eabca600-09ba-481a-b90c-a7dbdf0c77fe)
+
+
 ### Soal 8
 ```bash
 # Soal 8: Jalankan pada Colossal dan coba menggunakan tiap algoritma load balancing
