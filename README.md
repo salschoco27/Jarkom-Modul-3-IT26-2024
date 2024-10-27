@@ -2,7 +2,13 @@
 **Salsabila Rahmah (5027231005)** <br>
 **Rafael Ega Krisaditya (5027231025)**
 ## Daftar Isi
-
+- [IP Node](#ip-node)
+- [Network Configuration](#network-configuration)
+- [.bashrc](#bashrc)
+- [Soal 0](#soal-0)
+- [Soal 1-5](#soal-1-5)
+- [Soal 6-12](#soal-6-12)
+- [Soal 13](#soal-13)
 ### IP Node
 1. Paradis:
     - eth1: 192.246.1.1
