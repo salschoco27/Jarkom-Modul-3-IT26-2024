@@ -2,6 +2,23 @@
 **Salsabila Rahmah (5027231005)** <br>
 **Rafael Ega Krisaditya (5027231025)**
 ## Daftar Isi
+- [IP Node](#ip-node)<br>
+- [Network Configuration](#network-configuration)<br>
+- [Soal 0](soal-0)<br>
+- [Soal 1-5](soal-1-5)<br>
+	-[Soal 1](soal-1)<br>
+ 	-[Soal 2](soal-2)<br>
+	-[Soal 3](soal-3)<br>
+ 	-[Soal 4](soal-4)<br>
+ 	-[Soal 5](soal-5)<br>
+- [Soal 6-12](soal-6-12)<br>
+	-[Soal 6](soal-6)<br>
+ 	-[Soal 7](soal-7)<br>
+	-[Soal 8](soal-8)<br>
+ 	-[Soal 9](soal-9)<br>
+ 	-[Soal 10](soal-10)<br>
+- [Soal 13](soal-13)<br>
+
 
 ### IP Node
 1. Paradis:
