@@ -2,14 +2,26 @@
 **Salsabila Rahmah (5027231005)** <br>
 **Rafael Ega Krisaditya (5027231025)**
 ## Daftar Isi
-- [IP Node](#ip-node)
-- [Network Configuration](#network-configuration)
-- [.bashrc](#bashrc)
-- [Soal 0](#soal-0)
-- [Soal 1-5](#soal-1-5)
-- [Soal 6-12](#soal-6-12)
-- [Soal 13](#soal-13)
-### IP Node
+- [IP Node](#ip-node)<br>
+- [Network Configuration](#network-configuration)<br>
+- [.bashrc](#bashrc)<br>
+- [Soal 0](soal-0)<br>
+- [Soal 1-5](soal-1-5)<br>
+	-[Soal 1](soal-1)<br>
+ 	-[Soal 2](soal-2)<br>
+	-[Soal 3](soal-3)<br>
+ 	-[Soal 4](soal-4)<br>
+ 	-[Soal 5](soal-5)<br>
+- [Soal 6-12](soal-6-12)<br>
+	-[Soal 6](soal-6)<br>
+ 	-[Soal 7](soal-7)<br>
+	-[Soal 8](soal-8)<br>
+ 	-[Soal 9](soal-9)<br>
+ 	-[Soal 10](soal-10)<br>
+- [Soal 13](soal-13)<br>
+
+
+##  IP Node
 1. Paradis:
     - eth1: 192.246.1.1
     - eth2: 192.246.2.1
@@ -27,7 +39,7 @@
 11. Fritz: 192.246.4.2
 12. Tybur: 192.246.4.3
 
-### Network Configuration
+## Network Configuration
 1. Paradis
 ```
 auto eth0
@@ -424,6 +436,9 @@ service nginx restart
 nginx -t
 ```
 
+![Cuplikan layar 2024-10-26 194150](https://github.com/user-attachments/assets/1cd712f9-7b60-4f99-aab6-eca805102050)
+
+
 ### Soal 7
 ```bash
 #Jalankan pada Fritz
@@ -474,6 +489,9 @@ nginx -t
 ab -n 6000 -c 200 http://eldia.it26.com/
 ```
 
+![image](https://github.com/user-attachments/assets/eabca600-09ba-481a-b90c-a7dbdf0c77fe)
+
+
 ### Soal 8
 ```bash
 # Soal 8: Jalankan pada Colossal dan coba menggunakan tiap algoritma load balancing
@@ -508,6 +526,24 @@ nginx -t
 ab -n 1000 -c 75 http://eldia.it26.com/
 ```
 
+### Tes di Client<br>
+### A. Round Robin<br>
+![WhatsApp Image 2024-10-22 at 16 51 08_49117c41](https://github.com/user-attachments/assets/09affd86-ebdf-4f10-ad9f-dcbcdd437f81)
+
+### B. Hash<br>
+![WhatsApp Image 2024-10-22 at 16 53 48_d075cf69](https://github.com/user-attachments/assets/2d0e1ebf-f8e9-42c4-9d41-b35d62681af6)
+
+### C. Least Connection<br>
+![WhatsApp Image 2024-10-22 at 16 55 08_47278bdd](https://github.com/user-attachments/assets/aa3aee31-326a-4b96-a8ef-79ce8ef412e6)
+
+### D. IP Hash<br>
+![WhatsApp Image 2024-10-22 at 16 56 17_5dc3eb8f](https://github.com/user-attachments/assets/30dc397d-c765-4abb-8847-408f32e649c0)
+
+### Grafik Request per Second
+![image](https://github.com/user-attachments/assets/ecd2a800-8df6-45b2-aa6f-f4b4f1db3290)
+
+
+
 ### Soal 9
 ```bash
 # Ubah jumlah worker
@@ -518,6 +554,20 @@ service nginx stop
 #Pada Erwin lakukan setiap kali jumlah worker diubah
 ab -n 1000 -c 10 http://eldia.it26.com/
 ```
+
+### A. **3 worker**
+![WhatsApp Image 2024-10-22 at 17 01 38_9fcba179](https://github.com/user-attachments/assets/18be451b-b1ec-43e2-afa3-f7ae3381fa83)<br>
+
+### B. **2 worker**
+![WhatsApp Image 2024-10-22 at 17 02 06_3f3b3492](https://github.com/user-attachments/assets/f5d33e5e-12b7-4016-b674-525a5cdacd5f)<br>
+
+### C. **1 worker**
+![WhatsApp Image 2024-10-22 at 17 04 48_94eeda25](https://github.com/user-attachments/assets/390689a7-4cf3-4c0b-9bae-3cf47f21ed40)
+
+### Grafik Request per Second
+![image](https://github.com/user-attachments/assets/77b6245f-d2a8-4e65-ab34-83ca4bfcd039)
+
+
 
 ### Soal 10
 ```bash
@@ -552,7 +602,14 @@ service nginx restart
 nginx -t
 ```
 
-Lalu akses di client dengan `lynx`
+Lalu akses di client dengan `lynx http://eldia.it26.com`
+
+![Cuplikan layar 2024-10-27 055557](https://github.com/user-attachments/assets/9dd22611-11ef-4147-b1f5-b66733f2ffc3)
+![image](https://github.com/user-attachments/assets/2e3b589e-60a0-458d-9bb8-a3a67559434b)
+![Cuplikan layar 2024-10-27 055728](https://github.com/user-attachments/assets/ca4571a6-8e85-4235-a0b9-8d65429798bf)
+![Cuplikan layar 2024-10-27 055736](https://github.com/user-attachments/assets/ebef7b4d-17d7-45d6-8b6c-baed6d41e167)
+![Cuplikan layar 2024-10-27 055633](https://github.com/user-attachments/assets/224bd2f8-b71d-42c6-ba95-496437c859dd)
+
 
 
 ### Soal 11
@@ -588,6 +645,9 @@ rm -rf /etc/nginx/sites-enabled/default
 service nginx restart
 nginx -t
 ```
+
+![Cuplikan layar 2024-10-26 210512](https://github.com/user-attachments/assets/99020a19-bd54-4e3d-8dae-6e7e7528843f)
+
 
 ### Soal 12
 ```bash
@@ -641,6 +701,11 @@ service isc-dhcp-server restart
 echo 'hwaddress ether fa:61:fb:1a:8d:5b' >> /etc/network/interfaces
 ```
 
+![Cuplikan layar 2024-10-27 061839](https://github.com/user-attachments/assets/91750d14-4931-4865-8af9-ab19c9b889ed)
+![Cuplikan layar 2024-10-27 061833](https://github.com/user-attachments/assets/fdacbd13-ce85-4e3f-b525-74b7f93ecc49)
+
+
+
 ## Soal 13
 Melihat perlawanan yang sengit dari kaum eldia, kaum marley pun memutar otak dan mengatur para worker di marley.
 1. Karena mengetahui bahwa ada keturunan marley yang mewarisi kekuatan titan, Zeke pun berinisiatif untuk menyimpan data data penting di **Warhammer**, dan semua data tersebut harus dapat diakses oleh anak buah kesayangannya, **Annie, Reiner,** dan **Berthold**.**(13)**
@@ -659,3 +724,5 @@ exit
 ```
 
 Lalu akses di Worker (Annie, Berdholdt, Reiner) dengan `mariadb --host=192.246.3.4 --port=3306 --user=kelompokit26 --password`
+
+![image](https://github.com/user-attachments/assets/b4703001-ad2d-43c5-b4c9-d4f8de489909)
