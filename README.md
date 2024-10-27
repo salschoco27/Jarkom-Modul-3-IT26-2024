@@ -20,7 +20,7 @@
 - [Soal 13](soal-13)<br>
 
 
-### IP Node
+##  IP Node
 1. Paradis:
     - eth1: 192.246.1.1
     - eth2: 192.246.2.1
@@ -38,7 +38,7 @@
 11. Fritz: 192.246.4.2
 12. Tybur: 192.246.4.3
 
-### Network Configuration
+## Network Configuration
 1. Paradis
 ```
 auto eth0
