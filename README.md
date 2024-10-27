@@ -4,6 +4,7 @@
 ## Daftar Isi
 - [IP Node](#ip-node)<br>
 - [Network Configuration](#network-configuration)<br>
+- [.bashrc](#bashrc)<br>
 - [Soal 0](soal-0)<br>
 - [Soal 1-5](soal-1-5)<br>
 	-[Soal 1](soal-1)<br>
@@ -610,6 +611,7 @@ Lalu akses di client dengan `lynx http://eldia.it26.com`
 ![Cuplikan layar 2024-10-27 055633](https://github.com/user-attachments/assets/224bd2f8-b71d-42c6-ba95-496437c859dd)
 
 
+
 ### Soal 11
 ```bash
 #Pada Colossal
@@ -723,6 +725,4 @@ exit
 
 Lalu akses di Worker (Annie, Berdholdt, Reiner) dengan `mariadb --host=192.246.3.4 --port=3306 --user=kelompokit26 --password`
 
-
 ![image](https://github.com/user-attachments/assets/b4703001-ad2d-43c5-b4c9-d4f8de489909)
-
