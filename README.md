@@ -525,18 +525,22 @@ nginx -t
 ab -n 1000 -c 75 http://eldia.it26.com/
 ```
 
-**Tes di client**<br>
-Round-robin
-![image](https://github.com/user-attachments/assets/eabca600-09ba-481a-b90c-a7dbdf0c77fe)
+### Tes di Client<br>
+### A. Round Robin<br>
+![WhatsApp Image 2024-10-22 at 16 51 08_49117c41](https://github.com/user-attachments/assets/09affd86-ebdf-4f10-ad9f-dcbcdd437f81)
 
-Hash
-![image](https://github.com/user-attachments/assets/807a0ed5-3fa0-4d98-9474-4801509fa524)
+### B. Hash<br>
+![WhatsApp Image 2024-10-22 at 16 53 48_d075cf69](https://github.com/user-attachments/assets/2d0e1ebf-f8e9-42c4-9d41-b35d62681af6)
 
-Least Connection
-![image](https://github.com/user-attachments/assets/5dec3097-58c4-4c46-93a0-3f61c2c40786)
+### C. Least Connection<br>
+![WhatsApp Image 2024-10-22 at 16 55 08_47278bdd](https://github.com/user-attachments/assets/aa3aee31-326a-4b96-a8ef-79ce8ef412e6)
 
-IP Hash
-![image](https://github.com/user-attachments/assets/d63da0f1-6fab-4848-aeb0-485ed0a5b85f)
+### D. IP Hash<br>
+![WhatsApp Image 2024-10-22 at 16 56 17_5dc3eb8f](https://github.com/user-attachments/assets/30dc397d-c765-4abb-8847-408f32e649c0)
+
+### Grafik Request per Second
+![image](https://github.com/user-attachments/assets/ecd2a800-8df6-45b2-aa6f-f4b4f1db3290)
+
 
 
 ### Soal 9
@@ -550,17 +554,17 @@ service nginx stop
 ab -n 1000 -c 10 http://eldia.it26.com/
 ```
 
-**3 worker**
-![WhatsApp Image 2024-10-22 at 17 01 38_9fcba179](https://github.com/user-attachments/assets/18be451b-b1ec-43e2-afa3-f7ae3381fa83)
+### A. **3 worker**
+![WhatsApp Image 2024-10-22 at 17 01 38_9fcba179](https://github.com/user-attachments/assets/18be451b-b1ec-43e2-afa3-f7ae3381fa83)<br>
 
-**2 worker**
-![WhatsApp Image 2024-10-22 at 17 02 06_3f3b3492](https://github.com/user-attachments/assets/f5d33e5e-12b7-4016-b674-525a5cdacd5f)
+### B. **2 worker**
+![WhatsApp Image 2024-10-22 at 17 02 06_3f3b3492](https://github.com/user-attachments/assets/f5d33e5e-12b7-4016-b674-525a5cdacd5f)<br>
 
-**1 worker**
+### C. **1 worker**
 ![WhatsApp Image 2024-10-22 at 17 04 48_94eeda25](https://github.com/user-attachments/assets/390689a7-4cf3-4c0b-9bae-3cf47f21ed40)
 
-
-
+### Grafik Request per Second
+![image](https://github.com/user-attachments/assets/77b6245f-d2a8-4e65-ab34-83ca4bfcd039)
 
 
 
